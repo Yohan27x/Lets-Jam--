@@ -21,9 +21,9 @@ func _process(delta):
 		player.can_move = true
 #		print(dialogue.timer_trigger_delay.time_left)
 
-#	if dialogue_system.dialogue_index == 0:
-#		introduction.color_rect.color.a = 0
-##		print(dialogue.timer_trigger_delay.time_left)
+	if dialogue_system.dialogue_index == 2:
+		print("here")
+
 	
 	if dialogue_system.dialogue_index == 1 and done1 == false:
 		done1 = true

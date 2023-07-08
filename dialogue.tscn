@@ -8,7 +8,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_q7818"]
 font = ExtResource("2_43e6l")
 font_size = 7
-font_color = Color(0, 0, 0, 1)
 outline_color = Color(1, 0.592157, 1, 1)
 
 [node name="Dialogue" type="Control"]
@@ -23,24 +22,24 @@ grow_vertical = 2
 pivot_offset = Vector2(-11, 81)
 script = ExtResource("1_4o8bp")
 
-[node name="Text" type="Label" parent="."]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 164.0
-offset_right = 216.0
-offset_bottom = 196.0
-label_settings = SubResource("LabelSettings_q7818")
-text_overrun_behavior = 2
-max_lines_visible = 2
-
 [node name="Case" type="Sprite2D" parent="."]
-position = Vector2(132, 356)
+position = Vector2(131.5, 356)
 texture = ExtResource("3_r1kut")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(26, 344)
 scale = Vector2(0.84375, 0.90625)
 texture = ExtResource("4_34dan")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 330.0
+offset_right = 229.0
+offset_bottom = 362.0
+label_settings = SubResource("LabelSettings_q7818")
+text_overrun_behavior = 2
+max_lines_visible = 2
 
 [node name="Dialogue_speed" type="Timer" parent="."]
 wait_time = 0.334

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0sxsnfx52e2y"]
+[gd_scene load_steps=5 format=3 uid="uid://c0sxsnfx52e2y"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_3fhko"]
 [ext_resource type="PackedScene" uid="uid://vfagmpbxfcax" path="res://dialogue.tscn" id="2_m0cmb"]
 [ext_resource type="PackedScene" uid="uid://b4qhx5s2diegm" path="res://player.tscn" id="2_vma6n"]
 [ext_resource type="PackedScene" uid="uid://b1vjw1x3inthe" path="res://piano.tscn" id="4_yeni5"]
-[ext_resource type="PackedScene" uid="uid://dqkyneueqpd44" path="res://introduction.tscn" id="5_gocns"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_3fhko")
@@ -39,5 +38,3 @@ collision_mask = 0
 position = Vector2(8.45932, -10)
 scale = Vector2(1.23659, 1)
 polygon = PackedVector2Array(1, 0, 1, 7, 139.868, 7.00001, 202, 7, 201, 160, 0, 159, 0, 10, -16, 10, -17, 179, 216, 177, 216, 84.3147, 216, -10, -13, -11, -12, 0, 0, 6, 0, 10, -1, -5)
-
-[node name="Introduction" parent="." instance=ExtResource("5_gocns")]

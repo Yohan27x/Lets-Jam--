@@ -2,6 +2,7 @@ extends Control
 
 var count = -1
 
+
 @onready var timer_dialogue_speed = $Dialogue_speed
 @onready var timer_stay_on_screen = $Stay_on_screen
 @onready var timer_trigger_delay = $Trigger_delay
@@ -18,6 +19,8 @@ var dialogue_system = ResourceLoader.load("res://dialogue_system.tres")
 
 var text = ""
 
+signal switch_to_game
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -33,6 +36,9 @@ func _ready():
 	icon.texture = get_icon(dialogue_system.current_dialogue)
 	
 func _process(delta):
+	if(dialogue_system.dialogue_index == 3):
+		switch_to_game.emit()
+		
 #	print(dialogue_system.current_dialogue["speaker"])
 #	print(dialogue_system.current_dialogue["go_to_next"])
 	pass
@@ -53,7 +59,9 @@ func change_next_text():
 			
 			timer_trigger_delay.wait_time = dialogue_system.current_dialogue["delay_after_trigger"]
 			timer_trigger_delay.start()
-			visible = false
+			
+			if(dialogue_system.current_dialogue["delay_after_trigger"] > 0.02):
+				visible = false
 			
 			icon.texture = get_icon(dialogue_system.current_dialogue)
 			
