@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DialogueSystem2" load_steps=2 format=3 uid="uid://sffpnvp30vlt"]
+
+[ext_resource type="Script" path="res://dialogue_system_2.gd" id="1_4miii"]
+
+[resource]
+script = ExtResource("1_4miii")

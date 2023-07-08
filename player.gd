@@ -10,7 +10,7 @@ var dialogue_system = ResourceLoader.load("res://dialogue_system.tres")
 @onready var hit_box = $Marker2D/HitBox
 @onready var hurt_box = $HurtBox
 
-
+signal piano_touched
 
 var stats = PlayerStats
 
@@ -108,7 +108,8 @@ func move_state():
 		if(touch_piano == false):
 			var collision = get_slide_collision(i)
 			if(collision.get_collider().name == "Piano"):
-					dialogue_system.current_dialogue["go_to_next"] = true
+#					dialogue_system.current_dialogue["go_to_next"] = true
+					piano_touched.emit()
 					touch_piano = true
 
 func attack_state():

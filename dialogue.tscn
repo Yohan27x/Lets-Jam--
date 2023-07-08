@@ -50,6 +50,15 @@ one_shot = true
 [node name="Trigger_delay" type="Timer" parent="."]
 one_shot = true
 
+[node name="Text_start_delay" type="Timer" parent="."]
+one_shot = true
+
+[node name="Go_to_game" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="Dialogue_speed" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Stay_on_screen" to="." method="_on_stay_on_screen_timeout"]
 [connection signal="timeout" from="Trigger_delay" to="." method="_on_trigger_delay_timeout"]
+[connection signal="timeout" from="Text_start_delay" to="." method="_on_text_start_delay_timeout"]
+[connection signal="timeout" from="Go_to_game" to="." method="_on_go_to_game_timeout"]

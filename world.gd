@@ -1,31 +1,36 @@
 extends Node2D
 
-var dialogue_system = ResourceLoader.load("res://dialogue_system.tres")
 
 @onready var player = $Player
 @onready var dialogue = $Node/Dialogue
-@onready var introduction = $Introduction
 
 const ENEMY_1 = preload("res://enemy_1.tscn")
 
 var done1 = false
+var dial_sys 
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	dial_sys = dialogue.dialogue_system
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if dialogue_system.dialogue_index == 0:
+	
+	print(dial_sys.dialogue_index)
+	
+	if dial_sys.dialogue_index == 0:
 		player.can_move = true
 #		print(dialogue.timer_trigger_delay.time_left)
 
-	if dialogue_system.dialogue_index == 2:
+	if dial_sys.dialogue_index == 2:
 		print("here")
 
 	
-	if dialogue_system.dialogue_index == 1 and done1 == false:
+	if dial_sys.dialogue_index == 1 and done1 == false:
+		
 		done1 = true
 		for n in range(5):
 			var enemy = ENEMY_1.instantiate()
@@ -42,6 +47,8 @@ func _process(delta):
 func create_enemy_1():
 	pass
 
-
 func _on_dialogue_test_dialogue():
 	print("dialogue changed")
+
+func _on_player_piano_touched():
+	dial_sys.current_dialogue["go_to_next"] = true
