@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Dialogue_system" load_steps=2 format=3 uid="uid://djy0phytfb8wo"]
+
+[ext_resource type="Script" path="res://dialogue_system.gd" id="1_jgaov"]
+
+[resource]
+script = ExtResource("1_jgaov")

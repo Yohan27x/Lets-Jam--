@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1vjw1x3inthe"]
+
+[ext_resource type="Script" path="res://piano.gd" id="1_6e2bl"]
+[ext_resource type="Texture2D" uid="uid://dohccrcpc32y6" path="res://icon.svg" id="1_jdfib"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkcs4"]
+radius = 7.0
+
+[node name="Piano" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_6e2bl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.132)
+texture = ExtResource("1_jdfib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vkcs4")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsbs10fm31yj7"]
+
+[ext_resource type="Script" path="res://Effect.gd" id="1_yjsjq"]
+
+[node name="Effect" type="AnimatedSprite2D"]
+script = ExtResource("1_yjsjq")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

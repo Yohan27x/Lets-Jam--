@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccgnw26jyala6"]
+
+[ext_resource type="PackedScene" uid="uid://bsbs10fm31yj7" path="res://effect.tscn" id="1_ij02m"]
+[ext_resource type="Texture2D" uid="uid://cgjr1s1dg70p6" path="res://assets/kill_effect.png" id="2_k5n2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxg0h"]
+atlas = ExtResource("2_k5n2d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6o0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxg0h")
+}],
+"loop": false,
+"name": &"animate",
+"speed": 5.0
+}]
+
+[node name="Kill_Effect" instance=ExtResource("1_ij02m")]
+sprite_frames = SubResource("SpriteFrames_j6o0n")
+animation = &"animate"

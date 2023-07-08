@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://vfagmpbxfcax"]
+
+[ext_resource type="Script" path="res://dialogue.gd" id="1_4o8bp"]
+[ext_resource type="FontFile" uid="uid://dnwxygnlxangf" path="res://assets/04B_03_.TTF" id="2_43e6l"]
+[ext_resource type="Texture2D" uid="uid://r84slgj2a3tl" path="res://assets/CASE_vide.png" id="3_r1kut"]
+[ext_resource type="Texture2D" uid="uid://bnpn08r4hbq3r" path="res://assets/anaelle_talk.png" id="4_34dan"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7818"]
+font = ExtResource("2_43e6l")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 0.592157, 1, 1)
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-11, 81)
+script = ExtResource("1_4o8bp")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 164.0
+offset_right = 216.0
+offset_bottom = 196.0
+label_settings = SubResource("LabelSettings_q7818")
+text_overrun_behavior = 2
+max_lines_visible = 2
+
+[node name="Case" type="Sprite2D" parent="."]
+position = Vector2(132, 356)
+texture = ExtResource("3_r1kut")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(26, 344)
+scale = Vector2(0.84375, 0.90625)
+texture = ExtResource("4_34dan")
+
+[node name="Dialogue_speed" type="Timer" parent="."]
+wait_time = 0.334
+
+[node name="Stay_on_screen" type="Timer" parent="."]
+one_shot = true
+
+[node name="Trigger_delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Dialogue_speed" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Stay_on_screen" to="." method="_on_stay_on_screen_timeout"]
+[connection signal="timeout" from="Trigger_delay" to="." method="_on_trigger_delay_timeout"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkyneueqpd44"]
+
+[ext_resource type="Script" path="res://introduction.gd" id="1_t0mi3"]
+[ext_resource type="PackedScene" uid="uid://vfagmpbxfcax" path="res://dialogue.tscn" id="2_nfrdj"]
+
+[node name="Introduction" type="Node"]
+script = ExtResource("1_t0mi3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 225.0
+offset_bottom = 185.0
+color = Color(0.678431, 0.215686, 0.454902, 1)
+
+[node name="Dialogue" parent="." instance=ExtResource("2_nfrdj")]
+offset_left = -2.0
+offset_top = -166.0
+offset_right = -2.0
+offset_bottom = -166.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

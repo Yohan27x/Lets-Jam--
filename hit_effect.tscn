@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfs4hl3xm34ym"]
+
+[ext_resource type="PackedScene" uid="uid://bsbs10fm31yj7" path="res://effect.tscn" id="1_l1rlb"]
+[ext_resource type="Texture2D" uid="uid://50ufrcksoka2" path="res://assets/hit_effect.png" id="2_rttu6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1qjd"]
+atlas = ExtResource("2_rttu6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnr4a"]
+atlas = ExtResource("2_rttu6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7736"]
+atlas = ExtResource("2_rttu6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1qlk"]
+atlas = ExtResource("2_rttu6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c71q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1qjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnr4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7736")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1qlk")
+}],
+"loop": false,
+"name": &"animate",
+"speed": 10.0
+}]
+
+[node name="HitEffect" instance=ExtResource("1_l1rlb")]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_c71q5")
+animation = &"animate"
+frame_progress = 0.873191
