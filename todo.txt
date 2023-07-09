@@ -1,0 +1,51 @@
+CAREFUL : 
+utiliser des signals dans la scene principale
+instancier dans le code des nodes qui ont un custom signal, et lier ce signal a d'autres node ( genre dialogue ) directement dans world
+
+A FAIRE:
+smear beaucoup plus gros
+shader rouge hurt
+ajouter dans spritesheet attack la meme animation a l'envers blc
+enemi kebab pied a l'envers pour walk up / down
+
+BUG : 
+attack droite en haut qui fait bouger l'épée chelou
+
+Mais je crois que j’ai fait un peu n’imp au niveau des commandes… :
+  inverser les touches -> changer les touches
+  mouvement random -> Le joueur se rend compte que les touches sont inversées
+  mouvement qui déclenche un dialogue
+
+combattre les ennemies : 
+  epee a ramasser -> animation d'attaque OK
+
+après 4 secondes mini quand le joueur est dans la partie gauche/basse de l’écran le piano tombe du ciel sur partie droite)
+
+Le joueur va vers le piano, contact : ça lance une mélodie:
+  lancer des musiques
+
+
+Y’a des ennemis mal dessinés qui s’ajoutent, des obstacles, des sprites, des memes dans tous les sens
+	shader ? 
+	mouvement partout
+	full instance
+
+ressuciter -> blink invincible
+
+
+Dernière interaction qui amène à la fin en cacophonie…
+	bordel de mouvement, de création
+
+
+
+
+
+
+
+
+-------------
+
+stay_on_screen -> faire rester visible un certains temps OK
+time_separation_between -> délai entre deux dialogues, boite de dialogue disparait
+delay_after_trigger -> faire apparaitre apres un certain temps OK
+go_to_next -> empécher / déclenchre l'appartion du prohcain dialogue OK

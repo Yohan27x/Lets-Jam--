@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl2qdeg68nyms"
-path="res://.godot/imported/SPRITE_CACA_test.png-79cfd0df713082d49122a96a9eddfdf4.ctex"
+uid="uid://lmtddun76fhs"
+path="res://.godot/imported/ROOM_01_V5_end.png-8133bac750eda17e9d5eddf6c36fb7ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SPRITE_CACA_test.png"
-dest_files=["res://.godot/imported/SPRITE_CACA_test.png-79cfd0df713082d49122a96a9eddfdf4.ctex"]
+source_file="res://assets/ROOM_01_V5_end.png"
+dest_files=["res://.godot/imported/ROOM_01_V5_end.png-8133bac750eda17e9d5eddf6c36fb7ed.ctex"]
 
 [params]
 

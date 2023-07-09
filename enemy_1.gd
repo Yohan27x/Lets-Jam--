@@ -91,8 +91,8 @@ func _physics_process(delta):
 
 		if(stats.health > 0):
 			if(has_been_creating):
-				if(target != null):
-					
+				if(target != null or target.player_dead == false):
+								
 					seek()
 					
 					if(animation_player.current_animation.contains("attack")):
@@ -137,7 +137,7 @@ func _on_hurt_box_area_entered(area):
 
 func _on_attack_zone_body_entered(body):
 	if can_attack and timer_attack_cooldown.is_stopped():
-		print("in attack")
+#		print("in attack")
 		is_attacking = true
 		animation_player.play("attack_" + direction)
 		animation_player.queue("RESET")
@@ -159,3 +159,4 @@ func _on_stats_no_health():
 func _on_player_moved(new_dir):
 	await get_tree().create_timer(turn_direction).timeout
 	direction = new_dir
+

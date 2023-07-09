@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0sxsnfx52e2y"]
+[gd_scene load_steps=5 format=3 uid="uid://c0sxsnfx52e2y"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_3fhko"]
 [ext_resource type="PackedScene" uid="uid://vfagmpbxfcax" path="res://dialogue.tscn" id="2_m0cmb"]
 [ext_resource type="PackedScene" uid="uid://b4qhx5s2diegm" path="res://player.tscn" id="2_vma6n"]
 [ext_resource type="Resource" uid="uid://sffpnvp30vlt" path="res://dialogue_system_2.tres" id="3_y42up"]
-[ext_resource type="PackedScene" uid="uid://b1vjw1x3inthe" path="res://piano.tscn" id="4_yeni5"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_3fhko")
@@ -25,9 +24,6 @@ layout_mode = 1
 offset_top = -166.0
 offset_bottom = -166.0
 dialogue_system = ExtResource("3_y42up")
-
-[node name="Piano" parent="." instance=ExtResource("4_yeni5")]
-position = Vector2(92, 51)
 
 [node name="Player" parent="." instance=ExtResource("2_vma6n")]
 position = Vector2(181, 82)

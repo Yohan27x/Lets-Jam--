@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1paimhutfdmf"
-path="res://.godot/imported/SPRITE_CACA_test-sheet.png-a7e20838da692c21415845e541999655.ctex"
+uid="uid://c7dkydaeo7odl"
+path="res://.godot/imported/liz_talk_happy.png-db9e81ebeb2eec714564afd119bea159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SPRITE_CACA_test-sheet.png"
-dest_files=["res://.godot/imported/SPRITE_CACA_test-sheet.png-a7e20838da692c21415845e541999655.ctex"]
+source_file="res://assets/liz_talk_happy.png"
+dest_files=["res://.godot/imported/liz_talk_happy.png-db9e81ebeb2eec714564afd119bea159.ctex"]
 
 [params]
 

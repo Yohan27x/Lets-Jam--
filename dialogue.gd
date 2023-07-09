@@ -17,6 +17,10 @@ var yohan_icon = preload("res://assets/yohan_talk.png")
 var liz_icon = preload("res://assets/liz_talk.png")
 var ana_icon = preload("res://assets/anaelle_talk.png")
 
+var yohan_icon_happy = preload("res://assets/yohan_talk_happy.png")
+var liz_icon_happy = preload("res://assets/liz_talk_happy.png")
+var ana_icon_happy = preload("res://assets/anaelle_talk_happy.png")
+
 @export var dialogue_system = ResourceLoader.load("res://dialogue_system.tres")
 
 var text = ""
@@ -110,12 +114,24 @@ func _on_timer_timeout():
 		next_letter_text()
 		
 func get_icon(dialogue):
+	
 	if(dialogue["speaker"] == "yohan"):
-		return yohan_icon
+		if(dialogue["emotion"] == "happy"):
+			return yohan_icon_happy
+		else:
+			return yohan_icon
+			
 	elif(dialogue["speaker"] == "liz"):
-		return liz_icon
+		if(dialogue["emotion"] == "happy"):
+			return liz_icon_happy
+		else:
+			return liz_icon
+			
 	else:
-		return ana_icon
+		if(dialogue["emotion"] == "happy"):
+			return ana_icon_happy
+		else:
+			return ana_icon
 		
 func _on_trigger_delay_timeout():
 #	if(dialogue_system.current_dialogue["go_to_next"] != false):

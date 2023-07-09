@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bstobolpr83wo"
-path="res://.godot/imported/SPRITE_CACA_test_V2.png-bf5ae307734b37d57af3608d57dbdb68.ctex"
+uid="uid://doyg3um4emklk"
+path="res://.godot/imported/anaelle_talk_happy.png-168fbe8701190011eaed79d69e230c2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SPRITE_CACA_test_V2.png"
-dest_files=["res://.godot/imported/SPRITE_CACA_test_V2.png-bf5ae307734b37d57af3608d57dbdb68.ctex"]
+source_file="res://assets/anaelle_talk_happy.png"
+dest_files=["res://.godot/imported/anaelle_talk_happy.png-168fbe8701190011eaed79d69e230c2d.ctex"]
 
 [params]
 

@@ -1,6 +1,5 @@
 extends Node
 
-
 @export var max_health = 1 : set = set_max_health
 var health = 1 : set = set_health
 
@@ -10,6 +9,10 @@ signal max_health_changed(value)
 
 func _ready():
 	self.health = max_health
+	
+	
+#func _process(delta):
+#	print("health:", health)
 
 func set_max_health(value):
 	max_health = value

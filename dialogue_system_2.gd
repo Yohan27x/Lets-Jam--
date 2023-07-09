@@ -2,10 +2,10 @@ extends Resource
 class_name DialogueSystem2
 
 var dialogue_text = [
-	{"speaker" : "yohan", "text" : "we are in teh game !!! ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 1, "go_to_next" : false, "text_start_delay" : 0.5  },
-	{"speaker" : "ana", "text" : "ouaf oauf oauf  ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.4, "ready" : false, "stay_on_screen" : 2, "go_to_next" : true, "text_start_delay" : 0.01 },
-	{"speaker" : "liz", "text" : "bababab\nbobo ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 3, "go_to_next" : true, "text_start_delay" : 0.01 },
-#	{"speaker" : "liz", "text" : "rtyertyertyerty ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 3, "go_to_next" : true },
+	{"speaker" : "yohan", "emotion" : "" ,"text" : "we are in teh game !!! ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 0.01, "go_to_next" : true, "text_start_delay" : 0.5  },
+	{"speaker" : "ana", "emotion" : "happy" , "text" : "ouaf oauf oauf  ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.4, "ready" : false, "stay_on_screen" : 0.01, "go_to_next" : true, "text_start_delay" : 0.01 },
+	{"speaker" : "liz", "emotion" : "happy" , "text" : "bababab\nbobo ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 0.5, "go_to_next" : false, "text_start_delay" : 0.01 },
+	{"speaker" : "yohan", "emotion" : "" , "text" : "bqsfdqsfqzerbo ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 0.5, "go_to_next" : true, "text_start_delay" : 0.01 },
 ]
 
 var dialogue_index = 0

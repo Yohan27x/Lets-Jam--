@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bstobolpr83wo"
-path="res://.godot/imported/SPRITE_CACA_test_V2.png-bf5ae307734b37d57af3608d57dbdb68.ctex"
+uid="uid://cp8x2k6nvmrhs"
+path="res://.godot/imported/fumee_piano_tombe.png-1c3bde6eb5fc47320bd9c2c80a532e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SPRITE_CACA_test_V2.png"
-dest_files=["res://.godot/imported/SPRITE_CACA_test_V2.png-bf5ae307734b37d57af3608d57dbdb68.ctex"]
+source_file="res://assets/fumee_piano_tombe.png"
+dest_files=["res://.godot/imported/fumee_piano_tombe.png-1c3bde6eb5fc47320bd9c2c80a532e92.ctex"]
 
 [params]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0lxlkbkjmks2"]
+
+[ext_resource type="Script" path="res://Sword.gd" id="1_072o7"]
+[ext_resource type="Texture2D" uid="uid://0gk7hn2clef1" path="res://assets/sprite_epee.png" id="2_5vbju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxpuh"]
+size = Vector2(7, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3d0k"]
+radius = 6.0
+
+[node name="Sword" type="RigidBody2D"]
+collision_layer = 256
+max_contacts_reported = 200
+contact_monitor = true
+script = ExtResource("1_072o7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_hxpuh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5vbju")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color(0.709804, 0.270588, 0, 1)
+shape = SubResource("CircleShape2D_a3d0k")

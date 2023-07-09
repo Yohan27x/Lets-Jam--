@@ -1,12 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1vjw1x3inthe"]
+[gd_scene load_steps=12 format=3 uid="uid://b1vjw1x3inthe"]
 
 [ext_resource type="Script" path="res://piano.gd" id="1_6e2bl"]
 [ext_resource type="Texture2D" uid="uid://b41ispcd0odfe" path="res://assets/piano_asset.png" id="2_qmoar"]
+[ext_resource type="AudioStream" uid="uid://oy7ktayaxjtd" path="res://sounds/GJ10.1.wav" id="3_f65m4"]
+[ext_resource type="AudioStream" uid="uid://epsmbycm1r4q" path="res://sounds/GJ10 POUM .wav" id="4_uwc3w"]
+[ext_resource type="Texture2D" uid="uid://cp8x2k6nvmrhs" path="res://assets/fumee_piano_tombe.png" id="5_usawo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vkcs4"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmdvn"]
+size = Vector2(29, 15)
 
-[node name="Piano" type="StaticBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4jdc"]
+atlas = ExtResource("5_usawo")
+region = Rect2(0, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cy8w"]
+atlas = ExtResource("5_usawo")
+region = Rect2(33, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68wlv"]
+atlas = ExtResource("5_usawo")
+region = Rect2(66, 0, 33, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xknke"]
+atlas = ExtResource("5_usawo")
+region = Rect2(99, 0, 33, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5n2pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4jdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cy8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68wlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xknke")
+}],
+"loop": false,
+"name": &"grounded",
+"speed": 9.0
+}]
+
+[node name="Piano" type="RigidBody2D"]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_6e2bl")
@@ -15,4 +55,17 @@ script = ExtResource("1_6e2bl")
 texture = ExtResource("2_qmoar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vkcs4")
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_xmdvn")
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f65m4")
+
+[node name="Fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uwc3w")
+
+[node name="Fog" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5n2pm")
+animation = &"grounded"
+frame = 3
+frame_progress = 1.0
