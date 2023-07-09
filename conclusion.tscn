@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://tfw7fkwfh73h"]
+
+[ext_resource type="PackedScene" uid="uid://dqkyneueqpd44" path="res://introduction.tscn" id="1_0ow8u"]
+[ext_resource type="Texture2D" uid="uid://lmtddun76fhs" path="res://assets/ROOM_01_V5_end.png" id="2_37a60"]
+[ext_resource type="Resource" uid="uid://jqxokrb656xk" path="res://dialogue_system_3.tres" id="2_g6sus"]
+
+[node name="Conclusion" instance=ExtResource("1_0ow8u")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_37a60")
+
+[node name="Dialogue" parent="." index="2"]
+dialogue_system = ExtResource("2_g6sus")

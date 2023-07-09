@@ -8,33 +8,34 @@ shader rouge hurt
 ajouter dans spritesheet attack la meme animation a l'envers blc
 enemi kebab pied a l'envers pour walk up / down
 
-BUG : 
-attack droite en haut qui fait bouger l'épée chelou
 
 Mais je crois que j’ai fait un peu n’imp au niveau des commandes… :
+  CLASS INPUT_MAP
   inverser les touches -> changer les touches
   mouvement random -> Le joueur se rend compte que les touches sont inversées
   mouvement qui déclenche un dialogue
 
-combattre les ennemies : 
-  epee a ramasser -> animation d'attaque OK
-
 après 4 secondes mini quand le joueur est dans la partie gauche/basse de l’écran le piano tombe du ciel sur partie droite)
+OK
 
 Le joueur va vers le piano, contact : ça lance une mélodie:
-  lancer des musiques
-
+  - lancer la musique
 
 Y’a des ennemis mal dessinés qui s’ajoutent, des obstacles, des sprites, des memes dans tous les sens
 	shader ? 
 	mouvement partout
 	full instance
+	
+enemi:
+	- ajouter ennemi a distance -> prendre enemi shooter gamejam minggao
 
-ressuciter -> blink invincible
+player mort : 
+	- bruit de respawn
+	- animation de respawn ? blink ? 
+	- le rendre invincible 2s
+	- si climax == true et mort, alors gameover
 
 
-Dernière interaction qui amène à la fin en cacophonie…
-	bordel de mouvement, de création
 
 
 
