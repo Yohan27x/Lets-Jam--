@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0sxsnfx52e2y"]
+[gd_scene load_steps=7 format=3 uid="uid://c0sxsnfx52e2y"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_3fhko"]
 [ext_resource type="PackedScene" uid="uid://vfagmpbxfcax" path="res://dialogue.tscn" id="2_m0cmb"]
 [ext_resource type="PackedScene" uid="uid://b4qhx5s2diegm" path="res://player.tscn" id="2_vma6n"]
 [ext_resource type="Resource" uid="uid://sffpnvp30vlt" path="res://dialogue_system_2.tres" id="3_y42up"]
+[ext_resource type="AudioStream" uid="uid://cnomedd3rfsih" path="res://sounds/lancement piano game jam.wav" id="5_mevtr"]
+[ext_resource type="AudioStream" uid="uid://cmclb3nh2ml3j" path="res://sounds/boucle piano game jam1.wav" id="6_dmc55"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_3fhko")
@@ -26,7 +28,7 @@ offset_bottom = -166.0
 dialogue_system = ExtResource("3_y42up")
 
 [node name="Player" parent="." instance=ExtResource("2_vma6n")]
-position = Vector2(181, 82)
+position = Vector2(118, 82)
 
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 128
@@ -37,4 +39,29 @@ position = Vector2(8.45932, -10)
 scale = Vector2(1.23659, 1)
 polygon = PackedVector2Array(1, 0, 1, 7, 139.868, 7.00001, 202, 7, 201, 160, 0, 159, 0, 10, -16, 10, -17, 179, 216, 177, 216, 84.3147, 216, -10, -13, -11, -12, 0, 0, 6, 0, 10, -1, -5)
 
+[node name="CreatePiano" type="Timer" parent="."]
+wait_time = 2.7
+one_shot = true
+
+[node name="Begin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mevtr")
+
+[node name="Loop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dmc55")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 273.0
+offset_bottom = 236.0
+color = Color(0, 0, 0, 0)
+
+[node name="Timer_game_over" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="move_first" from="Player" to="." method="_on_player_move_first"]
 [connection signal="piano_touched" from="Player" to="." method="_on_player_piano_touched"]
+[connection signal="timeout" from="CreatePiano" to="." method="_on_create_piano_timeout"]
+[connection signal="finished" from="Begin" to="." method="_on_begin_finished"]
+[connection signal="timeout" from="Timer_game_over" to="." method="_on_timer_game_over_timeout"]

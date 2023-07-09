@@ -69,3 +69,5 @@ sprite_frames = SubResource("SpriteFrames_5n2pm")
 animation = &"grounded"
 frame = 3
 frame_progress = 1.0
+
+[connection signal="animation_finished" from="Fog" to="." method="_on_fog_animation_finished"]

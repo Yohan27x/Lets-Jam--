@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://vfagmpbxfcax"]
+[gd_scene load_steps=7 format=3 uid="uid://vfagmpbxfcax"]
 
 [ext_resource type="Script" path="res://dialogue.gd" id="1_4o8bp"]
 [ext_resource type="FontFile" uid="uid://dnwxygnlxangf" path="res://assets/04B_03_.TTF" id="2_43e6l"]
 [ext_resource type="Texture2D" uid="uid://r84slgj2a3tl" path="res://assets/CASE_vide.png" id="3_r1kut"]
 [ext_resource type="Texture2D" uid="uid://bnpn08r4hbq3r" path="res://assets/anaelle_talk.png" id="4_34dan"]
+[ext_resource type="AudioStream" uid="uid://msdv6vco4kew" path="res://sounds/GJ8.wav" id="5_0vguu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7818"]
 font = ExtResource("2_43e6l")
-font_size = 7
+font_size = 8
 outline_color = Color(1, 0.592157, 1, 1)
 
 [node name="Dialogue" type="Control"]
@@ -56,6 +57,10 @@ one_shot = true
 [node name="Go_to_game" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Change_Text_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0vguu")
+volume_db = 2.811
 
 [connection signal="timeout" from="Dialogue_speed" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Stay_on_screen" to="." method="_on_stay_on_screen_timeout"]

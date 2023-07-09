@@ -26,12 +26,14 @@ var ana_icon_happy = preload("res://assets/anaelle_talk_happy.png")
 var text = ""
 var display_text = false
 var trigger_switch_game = false
+var is_complete = false
 
 signal switch_to_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+#	print("dal idnex : ", dialogue_system.dialogue_index )	
 	timer_stay_on_screen.wait_time = dialogue_system.current_dialogue["stay_on_screen"]
 	
 	timer_trigger_delay.wait_time = dialogue_system.current_dialogue["delay_after_trigger"]
@@ -48,7 +50,12 @@ func _ready():
 	
 func _process(delta):
 	
-	if(dialogue_system.dialogue_index == 2 and len(text) == len(dialogue_system.current_dialogue["text"])):
+	if(len(text) == len(dialogue_system.current_dialogue["text"])):
+		is_complete = true
+		
+	
+	if(dialogue_system.dialogue_index == 8 and len(text) == len(dialogue_system.current_dialogue["text"])):
+#		print("dialgoeugd go to game")
 		if(trigger_switch_game == false):
 			print("iiin")
 			trigger_switch_game = true
@@ -70,7 +77,9 @@ func _process(delta):
 	
 func change_next_text():
 	#		emit_signal("test_dialogue")
+			
 			dialogue_system.dialogue_index += 1
+#			print("dial index :", dialogue_system.dialogue_index)
 			dialogue_system.current_dialogue = dialogue_system.dialogue_text[dialogue_system.dialogue_index]
 			text = ""
 			label.set_text(text)
@@ -84,6 +93,8 @@ func change_next_text():
 			
 			if(dialogue_system.current_dialogue["delay_after_trigger"] > 0.02):
 				visible = false
+				
+			is_complete = false
 			
 			text_start_delay.wait_time = dialogue_system.current_dialogue["text_start_delay"]
 			text_start_delay.start()
@@ -95,6 +106,8 @@ func next_letter_text():
 	
 	if(display_text == true):
 		if((count < len(dialogue_system.current_dialogue["text"]) -1) and visible == true):
+			if(count == -1):
+				$Change_Text_Sound.play()
 			count += 1
 			text += dialogue_system.current_dialogue["text"][count]
 			label.set_text(text)
@@ -153,7 +166,6 @@ func _on_stay_on_screen_timeout():
 
 func _on_text_start_delay_timeout():
 	display_text = true
-
 
 func _on_go_to_game_timeout():
 	switch_to_game.emit()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmclb3nh2ml3j"
+path="res://.godot/imported/boucle piano game jam1.wav-9162750a3ec302fff0aadca318da7507.sample"
+
+[deps]
+
+source_file="res://sounds/boucle piano game jam1.wav"
+dest_files=["res://.godot/imported/boucle piano game jam1.wav-9162750a3ec302fff0aadca318da7507.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

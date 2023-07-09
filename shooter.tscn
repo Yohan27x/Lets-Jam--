@@ -1,0 +1,193 @@
+[gd_scene load_steps=21 format=3 uid="uid://b42l0ih3wgatd"]
+
+[ext_resource type="Script" path="res://shooter.gd" id="1_8yybb"]
+[ext_resource type="PackedScene" uid="uid://bqrutnhiak7b0" path="res://hurt_box.tscn" id="1_grq36"]
+[ext_resource type="Texture2D" uid="uid://doa0n0urfeo7s" path="res://assets/SPRITE_SHEET_ENEMIES_boulette_bolo_V1.png" id="2_sow73"]
+[ext_resource type="PackedScene" uid="uid://bk3mganrtyr4x" path="res://stats.tscn" id="4_4x47b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87vhv"]
+radius = 272.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i57iv"]
+radius = 10.0499
+
+[sub_resource type="Animation" id="Animation_4c8vd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_olalu"]
+resource_name = "walk_left"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_qb1u0"]
+resource_name = "walk_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_f85pq"]
+resource_name = "walk_up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_bkcxk"]
+resource_name = "walk_down"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5b12"]
+_data = {
+"RESET": SubResource("Animation_4c8vd"),
+"walk_down": SubResource("Animation_bkcxk"),
+"walk_left": SubResource("Animation_olalu"),
+"walk_right": SubResource("Animation_qb1u0"),
+"walk_up": SubResource("Animation_f85pq")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u4cqt"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4y7s1"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cxjqd"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ep72k"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_31iit"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_u4cqt")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4y7s1")
+blend_point_1/pos = Vector2(0, -0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_cxjqd")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ep72k")
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t3cor"]
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_31iit")
+states/Walk/position = Vector2(546, 93)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ac65h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpu1e"]
+radius = 6.0
+
+[node name="Shooter" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 135
+script = ExtResource("1_8yybb")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="Radius" type="CollisionShape2D" parent="PlayerDetection"]
+visible = false
+shape = SubResource("CircleShape2D_87vhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+texture = ExtResource("2_sow73")
+hframes = 5
+vframes = 9
+frame = 1
+
+[node name="HurtBox" parent="." instance=ExtResource("1_grq36")]
+position = Vector2(7, 2)
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_i57iv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y5b12")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_t3cor")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ac65h")
+parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0, 0.752941, 0.301961, 1)
+position = Vector2(7, 2)
+shape = SubResource("CircleShape2D_jpu1e")
+
+[node name="Shoot" type="Timer" parent="."]
+
+[node name="Stats" parent="." instance=ExtResource("4_4x47b")]
+max_health = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Shoot" to="." method="_on_shoot_timeout"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
+[editable path="HurtBox"]

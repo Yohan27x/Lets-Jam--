@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwnnse5ioycao"]
+[gd_scene load_steps=22 format=3 uid="uid://dwnnse5ioycao"]
 
-[ext_resource type="Texture2D" uid="uid://doye6kb7p2nr7" path="res://assets/enemy1.png" id="1_e4gvj"]
 [ext_resource type="Script" path="res://enemy_1.gd" id="1_f261c"]
+[ext_resource type="Texture2D" uid="uid://c4gicmdr5hvpj" path="res://assets/enemy_RAT_V1.png" id="2_bl2dn"]
 [ext_resource type="PackedScene" uid="uid://bqrutnhiak7b0" path="res://hurt_box.tscn" id="3_eo2lc"]
+[ext_resource type="AudioStream" uid="uid://cqn7gxlccsufn" path="res://sounds/GJ6.wav" id="3_klo3m"]
 [ext_resource type="PackedScene" uid="uid://bk3mganrtyr4x" path="res://stats.tscn" id="4_dbcub"]
 [ext_resource type="PackedScene" uid="uid://dkx6xs8gb1roc" path="res://hit_box.tscn" id="5_vmjuo"]
-[ext_resource type="AudioStream" uid="uid://dcrlhnxqhwrdk" path="res://sounds/Hit_Hurt11.wav" id="6_lsu1d"]
+[ext_resource type="AudioStream" uid="uid://em0jpqjtasbx" path="res://sounds/GJ5.wav" id="6_7gr14"]
+[ext_resource type="AudioStream" uid="uid://brt0yr4yekk22" path="res://sounds/GJ7.wav" id="7_685qs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v1m32"]
 radius = 4.12311
@@ -42,7 +44,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wlivj"]
 resource_name = "attack_down"
-length = 1.6
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,7 +52,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.4, 0.6, 0.8, 1.1, 1.4),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.8, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13]
@@ -62,7 +64,7 @@ tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.3),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -74,17 +76,35 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [false],
+"method": &"set_is_attacking"
+}, {
 "args": [false],
 "method": &"set_is_attacking"
 }]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_klo3m")
+}],
+"times": PackedFloat32Array(0.8)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ikhgu"]
 resource_name = "attack_up"
-length = 1.6
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,7 +112,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.5, 0.7, 1.1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [14, 15, 16, 17]
@@ -104,7 +124,7 @@ tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.3),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -116,17 +136,35 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [false],
+"method": &"set_is_attacking"
+}, {
 "args": [false],
 "method": &"set_is_attacking"
 }]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_klo3m")
+}],
+"times": PackedFloat32Array(0.7)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_uxrup"]
 resource_name = "create"
-length = 1.5
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,7 +172,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -146,7 +184,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [true],
@@ -243,12 +281,12 @@ height = 22.0
 [node name="Enemy1" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
-collision_mask = 7
+collision_mask = 135
 motion_mode = 1
 script = ExtResource("1_f261c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_e4gvj")
+texture = ExtResource("2_bl2dn")
 hframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -258,6 +296,7 @@ shape = SubResource("CircleShape2D_v1m32")
 
 [node name="DetectionZone" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
 shape = SubResource("CircleShape2D_sor5m")
@@ -277,7 +316,7 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_cpk3n")
 
 [node name="Stats" parent="." instance=ExtResource("4_dbcub")]
-max_health = 3
+max_health = 2
 
 [node name="AttackZone" type="Area2D" parent="."]
 collision_layer = 0
@@ -300,10 +339,16 @@ shape = SubResource("CapsuleShape2D_kd0dc")
 disabled = true
 
 [node name="Attack_cooldown" type="Timer" parent="."]
+wait_time = 1.7
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_lsu1d")
+stream = ExtResource("6_7gr14")
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_685qs")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="player_moved" from="." to="." method="_on_player_moved"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]

@@ -25,6 +25,7 @@ func start_invincibility(duration):
 
 func create_hit_effect(offset):
 	var effect = HIT_EFFECT.instantiate()
+	effect.z_index = 2
 	var main = get_tree().current_scene
 	main.call_deferred("add_child", effect)
 	effect.global_position = global_position + offset

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6eb7hxocgkg"]
+
+[ext_resource type="PackedScene" uid="uid://bsbs10fm31yj7" path="res://effect.tscn" id="1_7ugnb"]
+[ext_resource type="Texture2D" uid="uid://c3yd3ne5f0xov" path="res://assets/projectile_bolo_dissappear.png" id="2_yeslw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyoo1"]
+atlas = ExtResource("2_yeslw")
+region = Rect2(0, 0, 10, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l831b"]
+atlas = ExtResource("2_yeslw")
+region = Rect2(10, 0, 10, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylt8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyoo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l831b")
+}],
+"loop": false,
+"name": &"animate",
+"speed": 11.0
+}]
+
+[node name="BulletEffect" instance=ExtResource("1_7ugnb")]
+sprite_frames = SubResource("SpriteFrames_ylt8y")
+animation = &"animate"
+frame = 1
+frame_progress = 1.0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnomedd3rfsih"
+path="res://.godot/imported/lancement piano game jam.wav-99ad1a30f220db2c7dc4a6776df268aa.sample"
+
+[deps]
+
+source_file="res://sounds/lancement piano game jam.wav"
+dest_files=["res://.godot/imported/lancement piano game jam.wav-99ad1a30f220db2c7dc4a6776df268aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

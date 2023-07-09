@@ -17,3 +17,6 @@ func _process(delta):
 			$Fall.play()
 			$Fog.play("grounded")
 
+
+func _on_fog_animation_finished():
+	$Fog.visible = false

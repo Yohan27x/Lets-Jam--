@@ -2,21 +2,25 @@ CAREFUL :
 utiliser des signals dans la scene principale
 instancier dans le code des nodes qui ont un custom signal, et lier ce signal a d'autres node ( genre dialogue ) directement dans world
 
+
 A FAIRE:
-smear beaucoup plus gros
+faire tous les dialogues 
+faire le climax
+faire le node conclusion -> faire la transtion game -> conclusion
+faire les crédit -> " true one "
+mettre player au milieu face down au début
+mettre au début l'ennemi 
+mettre tous les sons 
+changer les stats des ennemies
+vitesse différent quand j'instancie ? 
 shader rouge hurt
-ajouter dans spritesheet attack la meme animation a l'envers blc
-enemi kebab pied a l'envers pour walk up / down
 
-
-Mais je crois que j’ai fait un peu n’imp au niveau des commandes… :
-  CLASS INPUT_MAP
-  inverser les touches -> changer les touches
-  mouvement random -> Le joueur se rend compte que les touches sont inversées
-  mouvement qui déclenche un dialogue
-
-après 4 secondes mini quand le joueur est dans la partie gauche/basse de l’écran le piano tombe du ciel sur partie droite)
-OK
+player mort : 
+	- voir respawn fonction
+	- bruit de respawn
+	- animation de respawn ? blink ? 
+	- le rendre invincible 2s
+	- si climax == true et mort, alors gameover
 
 Le joueur va vers le piano, contact : ça lance une mélodie:
   - lancer la musique
@@ -25,28 +29,5 @@ Y’a des ennemis mal dessinés qui s’ajoutent, des obstacles, des sprites, de
 	shader ? 
 	mouvement partout
 	full instance
-	
-enemi:
-	- ajouter ennemi a distance -> prendre enemi shooter gamejam minggao
-
-player mort : 
-	- bruit de respawn
-	- animation de respawn ? blink ? 
-	- le rendre invincible 2s
-	- si climax == true et mort, alors gameover
 
 
-
-
-
-
-
-
-
-
--------------
-
-stay_on_screen -> faire rester visible un certains temps OK
-time_separation_between -> délai entre deux dialogues, boite de dialogue disparait
-delay_after_trigger -> faire apparaitre apres un certain temps OK
-go_to_next -> empécher / déclenchre l'appartion du prohcain dialogue OK

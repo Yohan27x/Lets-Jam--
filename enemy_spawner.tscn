@@ -6,23 +6,23 @@
 script = ExtResource("1_3lljb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 120.0
+one_shot = true
+
+[node name="Rythm1" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Rythm1" type="Timer" parent="."]
+[node name="Rythm2" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
-[node name="Rythm2" type="Timer" parent="."]
-one_shot = true
-
 [node name="Rythm3" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 2.0
 one_shot = true
 
 [node name="Rythm4" type="Timer" parent="."]
-wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="Rythm1" to="." method="_on_rythm_1_timeout"]

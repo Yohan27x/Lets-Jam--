@@ -2,7 +2,7 @@ extends Resource
 class_name DialogueSystem3
 
 var dialogue_text = [
-	{"speaker" : "yohan", "emotion" : "happy" , "text" : "C'est la fin enfin bordel ", "dialogue_speed" : 0.01, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 0.5, "go_to_next" : true, "text_start_delay" : 0.01 },
+	{"speaker" : "yohan", "emotion" : "happy" , "text" : "How did we end up here?", "dialogue_speed" : 0.1, "delay_after_trigger" : 0.001, "ready" : false, "stay_on_screen" : 2, "go_to_next" : true, "text_start_delay" : 3.2 },
 ]
 
 var dialogue_index = 0

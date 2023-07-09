@@ -57,6 +57,7 @@ func _ready():
 	
 func _process(delta):
 	
+
 	
 #	print("can attack :", can_attack)
 #	print(timer_attack_cooldown.time_left)
@@ -92,7 +93,7 @@ func _physics_process(delta):
 		if(stats.health > 0):
 			if(has_been_creating):
 				if(target != null or target.player_dead == false):
-								
+#					if(is_instance_valid(target)):
 					seek()
 					
 					if(animation_player.current_animation.contains("attack")):
@@ -136,25 +137,26 @@ func _on_hurt_box_area_entered(area):
 		hurt_box.create_hit_effect(Vector2.ZERO)
 
 func _on_attack_zone_body_entered(body):
-	if can_attack and timer_attack_cooldown.is_stopped():
-#		print("in attack")
-		is_attacking = true
-		animation_player.play("attack_" + direction)
-		animation_player.queue("RESET")
-		timer_attack_cooldown.wait_time = attack_cooldown
-		timer_attack_cooldown.start()
-		can_attack = false
+	if(target != null):
+		if can_attack and timer_attack_cooldown.is_stopped():
+			if(target.player_dead == false):
+		#		print("in attack")
+				is_attacking = true
+				animation_player.play("attack_" + direction)
+				timer_attack_cooldown.wait_time = attack_cooldown
+				timer_attack_cooldown.start()
+				can_attack = false
 		
 func _on_attack_cooldown_timeout():
 	can_attack = true
 	
 func _on_stats_no_health():
-	var kill_effect = KILL_EFFECT.instantiate()
-	var main = get_tree().current_scene
-	main.call_deferred("add_child", kill_effect)
-	kill_effect.global_position = global_position
+#	var kill_effect = KILL_EFFECT.instantiate()
+#	var main = get_tree().current_scene
+#	main.call_deferred("add_child", kill_effect)
+#	kill_effect.global_position = global_position
 	animation_player.play("dead")
-
+	$Dead.play()
 
 func _on_player_moved(new_dir):
 	await get_tree().create_timer(turn_direction).timeout
